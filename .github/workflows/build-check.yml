@@ -1,4 +1,4 @@
-name: Check pull request
+name: BuildCheck
 
 on: 
   pull_request:
@@ -7,8 +7,8 @@ on:
       - main
 
 jobs:
-  unit_tests:
-    runs-on: [ubuntu-latest]
+  build-check:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -23,6 +23,3 @@ jobs:
         
       - name: Build the app
         run: ./gradlew build
-        
-      - name: Unit tests
-        run: ./gradlew test
