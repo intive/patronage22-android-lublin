@@ -1,12 +1,21 @@
 package com.intive.patronage22.lublin
 
 import android.os.Bundle
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.intive.patronage22.lublin.databinding.ActivityMainBinding
-
+import com.intive.patronage22.lublin.screens.favorites.FavoritesFragment
+import com.intive.patronage22.lublin.screens.home.HomeFragment
+import com.intive.patronage22.lublin.screens.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +27,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(findViewById(R.id.AppToolbar))
+
+        val homeFragment = HomeFragment()
+        val searchFragment = SearchFragment()
+        val favoritesFragment = FavoritesFragment()
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+
+        setCurrentFragment(homeFragment)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> setCurrentFragment(homeFragment)
+                R.id.search -> setCurrentFragment(searchFragment)
+                R.id.favorites -> setCurrentFragment(favoritesFragment)
+            }
+            true
+        }
+    }
+
+    private fun setCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, fragment)
+            commit()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
