@@ -21,6 +21,17 @@ Android Emulator, Intel x86 Emulator Accelerator(HAXM installer).
 Access the [repository](https://github.com/intive/patronage22-android-lublin) and pull all changes
 to the local repository with the Git pull command.
 
+### Agreement
+```
+1. Branch should match the pattern:
+(feature|bugfix)/TICKET-NO-title-of-the-change
+for instance:
+feature/P2022-166-Create-read-me-file
+
+2. Commit message should be always linked with the ticket and be an explanation of the change that it introduces.
+P2022-166 Introduce basic Readme file.
+```
+
 ### Where users can get help with your project and who maintains and contributes to the project
 Michał Fiuk: majkel785@gmail.com
 [Paweł Sanaluta](https://github.com/pawelsanaluta) 
