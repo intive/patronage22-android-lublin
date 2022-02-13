@@ -28,21 +28,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(findViewById(R.id.AppToolbar))
 
-        val homeFragment = HomeFragment()
-        val searchFragment = SearchFragment()
-        val favoritesFragment = FavoritesFragment()
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-
-        setCurrentFragment(homeFragment)
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> setCurrentFragment(homeFragment)
-                R.id.search -> setCurrentFragment(searchFragment)
-                R.id.favorites -> setCurrentFragment(favoritesFragment)
+                R.id.home -> setCurrentFragment(HomeFragment())
+                R.id.search -> setCurrentFragment(SearchFragment())
+                R.id.favorites -> setCurrentFragment(FavoritesFragment())
             }
             true
         }
+        bottomNavigationView.selectedItemId = R.id.home
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
