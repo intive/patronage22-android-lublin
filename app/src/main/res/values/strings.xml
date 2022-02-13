@@ -11,9 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!--    bottom navigation bar item labels   -->
-    <string name="navbar_item1_label">Home</string>
-    <string name="navbar_item2_label">Search</string>
-    <string name="navbar_item3_label">Favorites</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
 
     <string name="settings">Settings</string>
     <string name="about">About</string>
