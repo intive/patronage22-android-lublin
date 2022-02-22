@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Samsung TU7020",
+    "description": "Samsung TU7020 Crystal UHD 4K Ultra HD HDR 65 Smart TV (2020) [Energy Class G]",
+    "priceGross": 538.8,
+    "tax": 120.9,
+    "keywords": "TV, samsung, 4K",
+    "category": "TV",
+    "imageUrl": "www.image.com/TU7020"
+  },
+  {
+    "name": "LG OLED65B16LA",
+    "description": "LG OLED65B16LA 65 inch 4K UHD HDR Smart OLED TV (2021 Model) with α7 Gen4 AI processor, 4K SELF-LIT OLED, Dolby Vision IQ and Dolby Atmos, built-in Google Assistant and Alexa",
+    "priceGross": 608.9,
+    "tax": 143.5,
+    "keywords": "TV, LG, OLED",
+    "category": "TV",
+    "imageUrl": "www.image.com/OLED65B16LA"
+  },
+  {
+    "name": "Sony BRAVIA 4K KD-65X89J",
+    "description": "Sony BRAVIA 4K KD-65X89J - 65-inch - LED - 4K Ultra HD (UHD) - High Dynamic Range (HDR) - Google TV - (Black, 2021 model)",
+    "priceGross": 750.99,
+    "tax": 180.9,
+    "keywords": "tv, sony, 4K",
+    "category": "TV",
+    "imageUrl": "www.image.com/KD-65X89J"
+  },
+  {
+    "name": "Philips 65PUS7506/12",
+    "description": "Philips 65 Inch Smart TV 4K. UHD LED Television ideal for Netflix, YouTube and Gaming / P5 Perfect Picture, HDR, Cinematic Dolby Vision & Atmos Sound / 65\" Philips 65PUS7506/12",
+    "priceGross": 818.98,
+    "tax": 200.5,
+    "keywords": "philips, smart, 4K",
+    "category": "TV",
+    "imageUrl": "www.image.com/65PUS7506/12"
+  },
+  {
+    "name": "HISENSE 50A7100FTUK",
+    "description": "HISENSE 50A7100FTUK 50-inch 4K UHD HDR Smart TV with Freeview play, and Alexa Built-in (2020 series), Black",
+    "priceGross": 305.97,
+    "tax": 85.9,
+    "keywords": "hisense, 4k, smart",
+    "category": "TV",
+    "imageUrl": "www.image.com/50A7100FTUK"
+  },
+  {
+    "name": "Samsung AU8000",
+    "description": "Samsung AU8000 55 Inch Smart TV (2021) - Crystal 4K AirSlim Smart TV with HDR10+, Built in Alexa, Dynamic Crystal Colour, Adaptive Sound, Motion Xcelerator, Samsung Q-Symphony Audio - UE55AU8000KXXU",
+    "priceGross": 529.99,
+    "tax": 129.0,
+    "keywords": "samsung, smart, 4k",
+    "category": "TV",
+    "imageUrl": "www.image.com/AU8000"
+  },
+  {
+    "name": "TCL 55P615K",
+    "description": "TCL 55P615K 55 Inch 4K Ultra HD Smart Android TV with Freeview Play, HDR10, Micro Dimming Pro, Prime Video, Netflix, YouTube, Dolby Audio, Bluetooth, WiFi, 3*HDMI, 2*USB, Slim Design - Black",
+    "priceGross": 343.17,
+    "tax": 83.0,
+    "keywords": "tcl, 4k, smart",
+    "category": "TV",
+    "imageUrl": "www.image.com/55P615K"
+  },
+  {
+    "name": "Philips Ambilight 70PUS7850/12",
+    "description": "Philips Ambilight 70PUS7855/12 70-Inch LED TV (4K UHD, P5 Perfect Picture Engine, Dolby Vision, Dolby Atmos, HDR 10+, Alexa Built-In, Freeview Play, Saphi Smart TV) - Light-Silver (2020/2021 Model)",
+    "priceGross": 999.99,
+    "tax": 199.99,
+    "keywords": "philips, smart, ambilight",
+    "category": "TV",
+    "imageUrl": "www.image.com/70PUS7850"
+  },
+  {
+    "name": "Sony BRAVIA KD75X81JU",
+    "description": "Sony BRAVIA KD75X81JU 75 inch 4K Ultra HD HDR Smart LED Google TV YouView",
+    "priceGross": 1100.5,
+    "tax": 220.05,
+    "keywords": "sony, smart, led",
+    "category": "TV",
+    "imageUrl": "www.image.com/KD75X81JU"
+  },
+  {
+    "name": "LG 86NANO916PA",
+    "description": "LG 86NANO916PA 86 inch 4K UHD HDR Smart NanoCell TV (2021 Model) with α7 Gen4 AI processor, HDR, HFR, VRR, Dolby Atmos & Dolby Vision IQ, built-in Google Assistant and Alexa",
+    "priceGross": 1200.99,
+    "tax": 245.99,
+    "keywords": "LG, 4k, smart",
+    "category": "TV",
+    "imageUrl": "www.image.com/86NANO916PA"
+  }
+]
