@@ -14,8 +14,10 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="favorites">Favorites</string>
+    <string name="categories">Categories</string>
 
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="hello_hello">Hello Hello</string>
+
 </resources>
