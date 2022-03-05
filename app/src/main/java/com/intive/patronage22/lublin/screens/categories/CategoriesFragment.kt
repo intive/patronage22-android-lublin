@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.repository.CategoryRepositoryMock
 import com.intive.patronage22.lublin.repository.ProductRepositoryMock
@@ -34,29 +35,10 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
-        val categoriesListView = view.findViewById<ListView>(R.id.listCategories)
+        val categoriesListView = view.findViewById<RecyclerView>(R.id.listCategories)
         val categories = viewModel.categories.toList()
 //        val categories = (0..100).map {"category-$it"} // check scrolling
-        categoriesListView.adapter = object : BaseAdapter() {
-            override fun getCount() = categories.size
-
-            override fun getItem(position: Int) = categories[position]
-
-            override fun getItemId(position: Int) = position.toLong()
-
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-                Log.d("inflating", "row ${categories[position]}")
-                val row = layoutInflater.inflate(R.layout.category_list_row, null)
-                val rowButton = row.findViewById<Button>(R.id.categoriesListButton)
-
-                rowButton.text = categories[position]
-                rowButton.setOnClickListener {
-                    Toast.makeText(requireContext(), "Not Implemented", Toast.LENGTH_SHORT).show()
-                }
-                return row
-            }
-
-        }
+        categoriesListView.adapter = CategoriesListAdapter(requireContext(), categories)
         return view
     }
 
