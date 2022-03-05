@@ -4,8 +4,7 @@ class CategoryRepositoryMock(
     private val productRepository: ProductRepository
 ) : CategoryRepository {
 
-    override suspend fun getCategories(): Set<String> {
+    override suspend fun getCategories(): List<String> {
         return productRepository.getProductList().map { it.category }
-            .toSet()
     }
 }

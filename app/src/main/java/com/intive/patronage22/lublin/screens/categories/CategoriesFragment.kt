@@ -1,14 +1,9 @@
 package com.intive.patronage22.lublin.screens.categories
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.intive.patronage22.lublin.R
@@ -36,9 +31,9 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
         val categoriesListView = view.findViewById<RecyclerView>(R.id.listCategories)
-        val categories = viewModel.categories.toList()
-//        val categories = (0..100).map {"category-$it"} // check scrolling
-        categoriesListView.adapter = CategoriesListAdapter(requireContext(), categories)
+        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+            categoriesListView.adapter = CategoriesListAdapter(requireContext(), categories)
+        }
         return view
     }
 
