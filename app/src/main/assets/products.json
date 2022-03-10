@@ -88,5 +88,14 @@
     "keywords": "LG, 4k, smart",
     "category": "TV",
     "imageUrl": "www.image.com/86NANO916PA"
+  },
+  {
+    "name": "OnePlus 5T",
+    "description": "Android-based smartphone.",
+    "priceGross": 840.00,
+    "tax": 252.00,
+    "keywords": "One Plus, SmartPhone",
+    "category": "Phone",
+    "imageUrl": "www.image.com/86NANO916PA"
   }
 ]
