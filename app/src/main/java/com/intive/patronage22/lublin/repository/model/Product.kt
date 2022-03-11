@@ -3,5 +3,6 @@ package com.intive.patronage22.lublin.repository.model
 data class Product(
     val name: String,
     val price: Double,
-    val category: String
+    val category: String,
+    val imageUrl: String
 )

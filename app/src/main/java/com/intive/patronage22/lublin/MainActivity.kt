@@ -20,6 +20,7 @@ import com.intive.patronage22.lublin.screens.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
