@@ -19,6 +19,6 @@
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="hello_hello">Hello Hello</string>
-    <string name="product_image_description">product_image</string>
+    <string name="product_image_description">Product image</string>
 
 </resources>
