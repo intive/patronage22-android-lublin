@@ -9,27 +9,37 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.intive.patronage22.lublin.R
+import com.intive.patronage22.lublin.databinding.CategoryListRowBinding
 
-class CategoriesListAdapter(private val context: Context, private val categories: List<String>) :
+class CategoriesListAdapter(
+    private val fragment: CategoriesFragment,
+    private val categories: List<String>
+) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
 
-    class ViewHolder(private val context: Context, itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-        private val categoryTextView: TextView = itemView.findViewById(R.id.categoriesListText)
+    class ViewHolder(
+        private val fragment: CategoriesFragment,
+        private val binding: CategoryListRowBinding
+    ) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(category: String) {
-            categoryTextView.text = category
-            categoryTextView.setOnClickListener {
-                Toast.makeText(context, "$category Not Implemented", Toast.LENGTH_SHORT).show()
+            binding.categoriesListText.text = category
+            binding.categoriesListText.setOnClickListener {
+                Toast.makeText(fragment.context, "$category Not Implemented", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.category_list_row, parent, false)
+        val binding = CategoryListRowBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
 
-        return ViewHolder(context, view)
+        return ViewHolder(fragment, binding)
     }
 
     override fun getItemCount(): Int {
