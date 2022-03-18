@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+String isCI = System.getenv('CI') ?: false
+String runId = System.getenv("GITHUB_RUN_ID") ?: 0
+String githubSHA = System.getenv("GITHUB_SHA") ?: ""
+
 android {
     compileSdk 32
 
@@ -10,8 +14,11 @@ android {
         applicationId "com.intive.patronage22.lublin"
         minSdk 21
         targetSdk 32
-        versionCode 1
+        versionCode runId.toInteger() + 1
         versionName "1.0"
+
+        buildConfigField "String", "CI", "\"${isCI}\""
+        buildConfigField "String", "SHA", "\"${githubSHA}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
