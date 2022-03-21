@@ -10,7 +10,7 @@ class ProductListMapper : ListMapper {
         val productList: MutableList<Product> = mutableListOf()
 
         input.forEach {
-            productList.add(Product(it.name, it.priceGross, it.category))
+            productList.add(Product(it.name, it.priceGross, it.category, it.imageUrl))
         }
 
         return productList
