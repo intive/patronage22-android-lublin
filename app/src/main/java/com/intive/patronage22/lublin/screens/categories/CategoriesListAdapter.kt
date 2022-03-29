@@ -18,7 +18,6 @@ class CategoriesListAdapter(
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
 
     class ViewHolder(
-        private val fragment: CategoriesFragment,
         private val binding: CategoryListRowBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,7 +25,7 @@ class CategoriesListAdapter(
         fun bind(category: String) {
             binding.categoriesListText.text = category
             binding.categoriesListText.setOnClickListener {
-                Toast.makeText(fragment.context, "$category Not Implemented", Toast.LENGTH_SHORT)
+                Toast.makeText(binding.root.context, "$category Not Implemented", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -39,7 +38,7 @@ class CategoriesListAdapter(
             false
         )
 
-        return ViewHolder(fragment, binding)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
