@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class GetProductResponseApi(
+data class ProductApi(
     @SerializedName("id")
     val id: Int,
     @SerializedName("title")

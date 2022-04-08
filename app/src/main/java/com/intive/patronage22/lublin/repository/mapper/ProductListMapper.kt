@@ -1,12 +1,12 @@
 package com.intive.patronage22.lublin.repository.mapper
 
-import com.intive.patronage22.lublin.repository.model.GetProductResponseApi
+import com.intive.patronage22.lublin.repository.model.ProductApi
 import com.intive.patronage22.lublin.repository.model.Product
 
 class ProductListMapper {
 
     companion object {
-        fun map(input: List<GetProductResponseApi>): List<Product> {
+        fun map(input: List<ProductApi>): List<Product> {
             return input.map { response ->
                 Product(
                     title = response.productTitle,
