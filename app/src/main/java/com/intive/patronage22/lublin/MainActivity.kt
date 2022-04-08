@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.intive.patronage22.lublin.configuration.BuildInfo
 import com.intive.patronage22.lublin.databinding.ActivityMainBinding
@@ -26,9 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(findViewById(R.id.AppToolbar))
+        setSupportActionBar(binding.AppToolbar)
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        val bottomNavigationView = binding.bottomNavigation
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {

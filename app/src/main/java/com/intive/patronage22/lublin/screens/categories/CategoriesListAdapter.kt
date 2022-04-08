@@ -1,21 +1,20 @@
 package com.intive.patronage22.lublin.screens.categories
 
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.databinding.CategoryListRowBinding
 
-class CategoriesListAdapter(
-    private val fragment: CategoriesFragment,
-    private val categories: List<String>
-) :
+class CategoriesListAdapter :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
+
+    private var categories: List<String> = emptyList()
+
+    fun setCategories(categories: List<String>) {
+        this.categories = categories
+    }
 
     class ViewHolder(
         private val binding: CategoryListRowBinding
@@ -25,7 +24,11 @@ class CategoriesListAdapter(
         fun bind(category: String) {
             binding.categoriesListText.text = category
             binding.categoriesListText.setOnClickListener {
-                Toast.makeText(binding.root.context, "$category Not Implemented", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    binding.root.context,
+                    "$category Not Implemented",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
