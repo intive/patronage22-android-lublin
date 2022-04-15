@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 
 interface PatronageService {
-    @GET("products/getAllProductsExternal")
+    @GET("products/getAllPublishedProductsExternal")
     suspend fun getAllProducts(): List<ProductApi>
 }
