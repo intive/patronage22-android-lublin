@@ -17,6 +17,7 @@
         <activity
             android:name=".screens.productsdetails.ProductDetailsActivity"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
