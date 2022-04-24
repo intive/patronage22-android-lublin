@@ -10,8 +10,8 @@ class ViewModelFactory(private val patronageService: PatronageService) : ViewMod
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ProductViewModel::class.java)) {
-            return ProductViewModel(ProductRepository(patronageService)) as T
+        if (modelClass.isAssignableFrom(ProductsViewModel::class.java)) {
+            return ProductsViewModel(ProductRepository(patronageService)) as T
         } else if (modelClass.isAssignableFrom(CategoriesViewModel::class.java)) {
             return CategoriesViewModel(CategoryRepository(
                 ProductRepository(patronageService)

@@ -27,7 +27,9 @@ data class ProductApi(
     @SerializedName("photos")
     val photosList: List<PhotoApi>,
     @SerializedName("category")
-    val category: String?
+    val category: String?,
+    @SerializedName("categoryId")
+    val categoryId: Int
 ) : Parcelable
 @Parcelize
 data class PhotoApi(
