@@ -28,7 +28,7 @@ class HomeListAdapter(private val productsViewModel: ProductsViewModel) :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.productsListTitle.text = product.title
-            binding.productsListPrice.text = "${binding.root.context.resources.getString(R.string.price_prefix)} ${product.price}"
+            binding.productsListPrice.text = binding.root.context.resources.getString(R.string.product_price, product.price)
             Glide.with(binding.root)
                 .load(URL + product.mainPhotoUrl)
                 .placeholder(R.drawable.image_placeholder)
