@@ -20,5 +20,6 @@
     <string name="about">About</string>
     <string name="hello_hello">Hello Hello</string>
     <string name="product_image_description">Product image</string>
+    <string name="price_prefix">Price: %s</string>
 
 </resources>
