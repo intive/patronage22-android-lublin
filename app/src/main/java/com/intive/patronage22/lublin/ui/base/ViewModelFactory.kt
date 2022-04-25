@@ -3,8 +3,8 @@ package com.intive.patronage22.lublin.ui.base
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.intive.patronage22.lublin.data.api.PatronageService
-import com.intive.patronage22.lublin.data.repository.ProductRepository
 import com.intive.patronage22.lublin.data.repository.CategoryRepository
+import com.intive.patronage22.lublin.data.repository.ProductRepository
 
 class ViewModelFactory(private val patronageService: PatronageService) : ViewModelProvider.Factory {
 
@@ -13,11 +13,10 @@ class ViewModelFactory(private val patronageService: PatronageService) : ViewMod
         if (modelClass.isAssignableFrom(ProductsViewModel::class.java)) {
             return ProductsViewModel(ProductRepository(patronageService)) as T
         } else if (modelClass.isAssignableFrom(CategoriesViewModel::class.java)) {
-            return CategoriesViewModel(CategoryRepository(
-                ProductRepository(patronageService)
-            )) as T
+            return CategoriesViewModel(
+                CategoryRepository(patronageService)) as T
         } else
-        throw IllegalArgumentException("Unknown class name")
+            throw IllegalArgumentException("Unknown class name")
     }
 
 }

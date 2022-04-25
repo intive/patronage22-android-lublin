@@ -1,5 +1,9 @@
 package com.intive.patronage22.lublin.data.repository
 
-class CategoryRepository(private val productRepository: ProductRepository) {
-    suspend fun getAllCategories() = productRepository.getAllProducts().map { it.category }.distinct()
+import com.intive.patronage22.lublin.data.api.PatronageService
+import com.intive.patronage22.lublin.repository.mapper.CategoryListMapper
+
+class CategoryRepository(private val patronageService: PatronageService) {
+
+    suspend fun getAllCategories() = CategoryListMapper.map(patronageService.getAllCategories())
 }

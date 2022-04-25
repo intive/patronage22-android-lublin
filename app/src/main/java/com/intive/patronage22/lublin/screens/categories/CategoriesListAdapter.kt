@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.intive.patronage22.lublin.databinding.CategoryListRowBinding
+import com.intive.patronage22.lublin.repository.model.Category
 
 class CategoriesListAdapter :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
 
-    private var categories: List<String> = emptyList()
+    private var categories: List<Category> = emptyList()
 
-    fun setCategories(categories: List<String>) {
+    fun setCategories(categories: List<Category>) {
         this.categories = categories
     }
 
@@ -21,8 +22,8 @@ class CategoriesListAdapter :
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(category: String) {
-            binding.categoriesListText.text = category
+        fun bind(category: Category) {
+            binding.categoriesListText.text = category.title
             binding.categoriesListText.setOnClickListener {
                 Toast.makeText(
                     binding.root.context,
