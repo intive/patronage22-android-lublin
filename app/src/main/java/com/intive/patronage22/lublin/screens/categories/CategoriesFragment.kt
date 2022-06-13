@@ -13,12 +13,12 @@ import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.data.api.RetrofitBuilder
 import com.intive.patronage22.lublin.databinding.FragmentCategoriesBinding
 import com.intive.patronage22.lublin.ui.base.CategoriesViewModel
-import com.intive.patronage22.lublin.ui.base.ViewModelFactory
 import com.intive.patronage22.lublin.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
-    private val factory = ViewModelFactory(RetrofitBuilder.apiService)
-    private val viewModel: CategoriesViewModel by viewModels { factory }
+    private val viewModel: CategoriesViewModel by viewModels()
     private lateinit var adapter: CategoriesListAdapter
 
     override fun onCreateView(

@@ -13,6 +13,4 @@ object RetrofitBuilder {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
-    val apiService: PatronageService = getRetrofit().create(PatronageService::class.java)
 }

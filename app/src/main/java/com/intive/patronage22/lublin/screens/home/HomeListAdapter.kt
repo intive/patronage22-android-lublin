@@ -12,8 +12,9 @@ import com.intive.patronage22.lublin.databinding.HomeSingleItemBinding
 import com.intive.patronage22.lublin.repository.model.Product
 import com.intive.patronage22.lublin.screens.productsdetails.ProductDetailsActivity
 import com.intive.patronage22.lublin.ui.base.ProductsViewModel
+import javax.inject.Inject
 
-class HomeListAdapter(private val productsViewModel: ProductsViewModel) :
+class HomeListAdapter @Inject constructor(private val productsViewModel: ProductsViewModel) :
     RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
 
     private var products: List<Product> = emptyList()

@@ -11,6 +11,4 @@ interface PatronageService {
 
     @GET("categories")
     suspend fun getAllCategories(): List<CategoriesApi>
-
-
 }

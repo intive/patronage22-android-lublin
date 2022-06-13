@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.intive.patronage22.lublin.data.repository.CategoryRepository
 import com.intive.patronage22.lublin.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class CategoriesViewModel(private val categoryRepository: CategoryRepository) : ViewModel() {
+@HiltViewModel
+class CategoriesViewModel @Inject constructor(private val categoryRepository: CategoryRepository) : ViewModel() {
 
     fun getAllCategories() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
