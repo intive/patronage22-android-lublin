@@ -6,16 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.URL
-import com.intive.patronage22.lublin.data.api.RetrofitBuilder
 import com.intive.patronage22.lublin.databinding.ActivityProductDetailsBinding
-import com.intive.patronage22.lublin.repository.model.Product
 import com.intive.patronage22.lublin.ui.base.ProductsViewModel
-import com.intive.patronage22.lublin.ui.base.ViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductDetailsActivity : AppCompatActivity() {
 
-    private val factory = ViewModelFactory(RetrofitBuilder.apiService)
-    private val viewModel: ProductsViewModel by viewModels { factory }
+    private val viewModel: ProductsViewModel by viewModels()
 
     private lateinit var binding: ActivityProductDetailsBinding
 

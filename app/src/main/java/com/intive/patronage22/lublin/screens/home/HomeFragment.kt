@@ -10,17 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.intive.patronage22.lublin.R
-import com.intive.patronage22.lublin.data.api.RetrofitBuilder
 import com.intive.patronage22.lublin.databinding.FragmentHomeBinding
 import com.intive.patronage22.lublin.ui.base.ProductsViewModel
-import com.intive.patronage22.lublin.ui.base.ViewModelFactory
 import com.intive.patronage22.lublin.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val factory = ViewModelFactory(RetrofitBuilder.apiService)
-    private val viewModel: ProductsViewModel by viewModels { factory }
-    private lateinit var adapter: HomeListAdapter
+    private val viewModel: ProductsViewModel by viewModels()
+    lateinit var adapter: HomeListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
