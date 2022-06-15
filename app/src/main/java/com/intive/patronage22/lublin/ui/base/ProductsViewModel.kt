@@ -11,11 +11,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
-private const val productExtraName = "single_product_data"
+private const val PRODUCT_EXTRA_NAME: String = "single_product_data"
+
 @HiltViewModel
 class ProductsViewModel @Inject constructor(
     private val productRepository: ProductRepository
-    ) : ViewModel() {
+) : ViewModel() {
 
     fun getAllProducts() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
@@ -27,8 +28,7 @@ class ProductsViewModel @Inject constructor(
         }
     }
 
-    fun getProductFrom(intent: Intent): Product? = intent.getParcelableExtra(productExtraName)
+    fun getProductFrom(intent: Intent): Product? = intent.getParcelableExtra(PRODUCT_EXTRA_NAME)
 
-    fun pack(intent: Intent, product: Product) = intent.putExtra(productExtraName, product)
-
+    fun pack(intent: Intent, product: Product) = intent.putExtra(PRODUCT_EXTRA_NAME, product)
 }

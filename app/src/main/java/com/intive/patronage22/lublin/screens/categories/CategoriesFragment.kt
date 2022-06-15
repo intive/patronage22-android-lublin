@@ -56,5 +56,4 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             }
         }
     }
-
 }

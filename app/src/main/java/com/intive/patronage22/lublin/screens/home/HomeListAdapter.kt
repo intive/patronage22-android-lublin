@@ -14,8 +14,9 @@ import com.intive.patronage22.lublin.screens.productsdetails.ProductDetailsActiv
 import com.intive.patronage22.lublin.ui.base.ProductsViewModel
 import javax.inject.Inject
 
-class HomeListAdapter @Inject constructor(private val productsViewModel: ProductsViewModel) :
-    RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
+class HomeListAdapter @Inject constructor(
+    private val productsViewModel: ProductsViewModel
+) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
 
     private var products: List<Product> = emptyList()
 
@@ -29,7 +30,8 @@ class HomeListAdapter @Inject constructor(private val productsViewModel: Product
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.productsListTitle.text = product.title
-            binding.productsListPrice.text = binding.root.context.resources.getString(R.string.product_price, product.price)
+            binding.productsListPrice.text =
+                binding.root.context.resources.getString(R.string.product_price, product.price)
             Glide.with(binding.root)
                 .load(URL + product.mainPhotoUrl)
                 .placeholder(R.drawable.image_placeholder)
@@ -50,7 +52,7 @@ class HomeListAdapter @Inject constructor(private val productsViewModel: Product
             false
         )
 
-        return ViewHolder(productsViewModel,binding)
+        return ViewHolder(productsViewModel, binding)
     }
 
     override fun getItemCount(): Int {

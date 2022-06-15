@@ -10,7 +10,9 @@ import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @HiltViewModel
-class CategoriesViewModel @Inject constructor(private val categoryRepository: CategoryRepository) : ViewModel() {
+class CategoriesViewModel @Inject constructor(
+    private val categoryRepository: CategoryRepository
+) : ViewModel() {
 
     fun getAllCategories() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
