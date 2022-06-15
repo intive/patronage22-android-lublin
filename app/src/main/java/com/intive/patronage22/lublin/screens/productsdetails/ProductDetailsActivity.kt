@@ -29,7 +29,8 @@ class ProductDetailsActivity : AppCompatActivity() {
             .fitCenter()
             .into(binding.productImage)
         binding.productName.text = product.title
-        binding.productPrice.text = binding.root.context.resources.getString(R.string.product_price, product.price)
+        binding.productPrice.text =
+            binding.root.context.resources.getString(R.string.product_price, product.price)
         binding.productDescription.text = product.description
     }
 }

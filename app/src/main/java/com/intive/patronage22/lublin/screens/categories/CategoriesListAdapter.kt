@@ -1,6 +1,5 @@
 package com.intive.patronage22.lublin.screens.categories
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast

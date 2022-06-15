@@ -12,13 +12,14 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DataModule {
-    private val BASE_URL = "http://proxy-patronageapi.bsolutions.usermd.net/api/"
+    // TODO P2022-2204
+    private val baseUrl = "http://proxy-patronageapi.bsolutions.usermd.net/api/"
 
     @Singleton
     @Provides
     fun providesRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
