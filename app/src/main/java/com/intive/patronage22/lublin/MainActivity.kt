@@ -13,7 +13,9 @@ import com.intive.patronage22.lublin.screens.categories.CategoriesFragment
 import com.intive.patronage22.lublin.screens.favorites.FavoritesFragment
 import com.intive.patronage22.lublin.screens.home.HomeFragment
 import com.intive.patronage22.lublin.screens.search.SearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

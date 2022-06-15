@@ -3,26 +3,25 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>EmptyClassBlock:FavoritesFragment.kt$FavoritesFragment${ }</ID>
+    <ID>EmptyClassBlock:PatronageApplication.kt$PatronageApplication${ }</ID>
     <ID>EmptyClassBlock:SearchFragment.kt$SearchFragment${ }</ID>
+    <ID>MaxLineLength:CategoriesViewModel.kt$CategoriesViewModel$class</ID>
     <ID>MaxLineLength:HomeListAdapter.kt$HomeListAdapter.ViewHolder$binding.productsListPrice.text = binding.root.context.resources.getString(R.string.product_price, product.price)</ID>
     <ID>MaxLineLength:ProductDetailsActivity.kt$ProductDetailsActivity$binding.productPrice.text = binding.root.context.resources.getString(R.string.product_price, product.price)</ID>
-    <ID>MultiLineIfElse:com.intive.patronage22.lublin.ui.base.ViewModelFactory.kt:19</ID>
-    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.repository.mapper.ProductListMapper.kt:21</ID>
-    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.screens.categories.CategoriesFragment.kt:60</ID>
+    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.screens.categories.CategoriesFragment.kt:59</ID>
     <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.screens.favorites.FavoritesFragment.kt:7</ID>
     <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.screens.search.SearchFragment.kt:7</ID>
-    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.ui.base.ProductsViewModel.kt:29</ID>
-    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.ui.base.ViewModelFactory.kt:21</ID>
+    <ID>NoBlankLineBeforeRbrace:com.intive.patronage22.lublin.ui.base.ProductsViewModel.kt:33</ID>
     <ID>NoConsecutiveBlankLines:com.intive.patronage22.lublin.data.api.PatronageService.kt:7</ID>
     <ID>NoConsecutiveBlankLines:com.intive.patronage22.lublin.screens.categories.CategoriesListAdapter.kt:3</ID>
+    <ID>NoEmptyClassBody:com.intive.patronage22.lublin.PatronageApplication.kt:7</ID>
     <ID>NoEmptyClassBody:com.intive.patronage22.lublin.screens.favorites.FavoritesFragment.kt:6</ID>
     <ID>NoEmptyClassBody:com.intive.patronage22.lublin.screens.search.SearchFragment.kt:6</ID>
-    <ID>NoUnusedImports:com.intive.patronage22.lublin.screens.productsdetails.ProductDetailsActivity.kt:11</ID>
+    <ID>ParameterListWrapping:com.intive.patronage22.lublin.ui.base.ProductsViewModel.kt:18</ID>
     <ID>SpacingAroundColon:com.intive.patronage22.lublin.repository.model.Category.kt:9</ID>
     <ID>SpacingAroundColon:com.intive.patronage22.lublin.repository.model.Product.kt:12</ID>
-    <ID>SpacingAroundColon:com.intive.patronage22.lublin.ui.base.ProductsViewModel.kt:26</ID>
-    <ID>SpacingAroundColon:com.intive.patronage22.lublin.ui.base.ProductsViewModel.kt:28</ID>
-    <ID>SpacingAroundComma:com.intive.patronage22.lublin.screens.home.HomeListAdapter.kt:52</ID>
+    <ID>SpacingAroundComma:com.intive.patronage22.lublin.screens.home.HomeListAdapter.kt:53</ID>
     <ID>TopLevelPropertyNaming:ProductsViewModel.kt$private const val productExtraName = "single_product_data"</ID>
+    <ID>VariableNaming:DataModule.kt$DataModule$private val BASE_URL = "http://proxy-patronageapi.bsolutions.usermd.net/api/"</ID>
   </CurrentIssues>
 </SmellBaseline>
