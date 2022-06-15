@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'io.gitlab.arturbosch.detekt'
 }
+apply from: rootProject.file("gradle/detekt.gradle")
 
 String isCI = System.getenv('CI') ?: false
 String runId = System.getenv("GITHUB_RUN_ID") ?: 0
