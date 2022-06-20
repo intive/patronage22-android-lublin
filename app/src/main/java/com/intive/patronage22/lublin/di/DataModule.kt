@@ -1,5 +1,6 @@
 package com.intive.patronage22.lublin.di
 
+import com.intive.patronage22.lublin.API_URL
 import com.intive.patronage22.lublin.data.api.PatronageService
 import dagger.Module
 import dagger.Provides
@@ -12,14 +13,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DataModule {
-    // TODO P2022-2204
-    private val baseUrl = "http://proxy-patronageapi.bsolutions.usermd.net/api/"
 
     @Singleton
     @Provides
     fun providesRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
