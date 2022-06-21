@@ -7,7 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
