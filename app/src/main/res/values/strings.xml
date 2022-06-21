@@ -21,10 +21,11 @@
     <string name="hello_hello">Hello Hello</string>
     <string name="product_image_description">Product image</string>
     <string name="product_price">Price: %d</string>
-    <!-- Login screen -->
+    <!-- Login / registration strings -->
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_button_text">Login</string>
     <string name="register_button_text">Register</string>
+    <string name="email_hint">E-mail</string>
 
 </resources>
