@@ -1,29 +1,33 @@
 package com.intive.patronage22.lublin.screens.login
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.intive.patronage22.lublin.MainActivity
-import com.intive.patronage22.lublin.databinding.FragmentLoginBinding
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.intive.patronage22.lublin.R
+import com.intive.patronage22.lublin.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = FragmentLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonLogin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        this.setSupportActionBar(binding.loginToolbar)
 
-        binding.registerButton.setOnClickListener {
-            Toast.makeText(this, "Registering users not supported", Toast.LENGTH_SHORT).show()
-        }
+        NavigationUI.setupActionBarWithNavController(this, getNavController())
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return getNavController().navigateUp()
+    }
+
+    private fun getNavController(): NavController {
+        return this.findNavController(R.id.loginNavHostFragment)
     }
 }

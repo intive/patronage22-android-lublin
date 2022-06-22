@@ -30,6 +30,7 @@
             android:name=".screens.login.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.Patronage2022.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
