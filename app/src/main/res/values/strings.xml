@@ -27,5 +27,9 @@
     <string name="login_button_text">Login</string>
     <string name="register_button_text">Register</string>
     <string name="email_hint">E-mail</string>
+    <!-- Registration error messages -->
+    <string name="not_valid_username_error">"Enter a valid name"</string>
+    <string name="not_valid_email_error">"Enter a valid email address"</string>
+    <string name="not_valid_password_error">"Enter a valid password"</string>
 
 </resources>
