@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.intive.patronage22.lublin.MainActivity
 import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onCreateView(
         inflater: LayoutInflater,
