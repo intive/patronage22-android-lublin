@@ -17,6 +17,8 @@
 
         <Button
             android:id="@+id/registerButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:enabled="@{registerViewModel.registerButtonEnabled}"
             android:layout_width="@dimen/edit_text_width"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
