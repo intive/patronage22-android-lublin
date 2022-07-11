@@ -1,8 +1,10 @@
 package com.intive.patronage22.lublin.screens.register
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.intive.patronage22.lublin.FormValidationResults
 import com.intive.patronage22.lublin.RegisterFlowValidator
+import com.intive.patronage22.lublin.screens.TestValidationResults.Companion.VALIDATION_ERROR
+import com.intive.patronage22.lublin.screens.TestValidationResults.Companion.VALIDATION_OK
+import com.intive.patronage22.lublin.screens.TestValidationResults.Companion.createRegistrationValidationResult
 import junitparams.JUnitParamsRunner
 import junitparams.Parameters
 import junitparams.naming.TestCaseName
@@ -20,7 +22,6 @@ class RegisterViewModelTest {
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    private val formValidationResults: FormValidationResults = FormValidationResults()
     private val validationResult = "validation result"
     private val username = "username"
     private val password = "password"
@@ -76,13 +77,36 @@ class RegisterViewModelTest {
     }
 
     private fun testParams() =
-        with(formValidationResults) {
-            listOf(
-                arrayOf(correctUsername, correctEmail, correctPassword, buttonEnabled),
-                arrayOf(incorrectUsername, correctEmail, correctPassword, buttonDisabled),
-                arrayOf(correctUsername, incorrectEmail, correctPassword, buttonDisabled),
-                arrayOf(correctUsername, correctEmail, incorrectPassword, buttonDisabled),
-                arrayOf(incorrectUsername, incorrectEmail, incorrectPassword, buttonDisabled)
+        listOf(
+            createRegistrationValidationResult(
+                usernameValidationResult = VALIDATION_OK,
+                emailValidationResult = VALIDATION_OK,
+                passwordValidationResult = VALIDATION_OK,
+                buttonEnabled = true
+            ),
+            createRegistrationValidationResult(
+                usernameValidationResult = VALIDATION_ERROR,
+                emailValidationResult = VALIDATION_OK,
+                passwordValidationResult = VALIDATION_OK,
+                buttonEnabled = false
+            ),
+            createRegistrationValidationResult(
+                usernameValidationResult = VALIDATION_OK,
+                emailValidationResult = VALIDATION_ERROR,
+                passwordValidationResult = VALIDATION_OK,
+                buttonEnabled = false
+            ),
+            createRegistrationValidationResult(
+                usernameValidationResult = VALIDATION_OK,
+                emailValidationResult = VALIDATION_OK,
+                passwordValidationResult = VALIDATION_ERROR,
+                buttonEnabled = false
+            ),
+            createRegistrationValidationResult(
+                usernameValidationResult = VALIDATION_ERROR,
+                emailValidationResult = VALIDATION_ERROR,
+                passwordValidationResult = VALIDATION_ERROR,
+                buttonEnabled = false
             )
-        }
+        )
 }
