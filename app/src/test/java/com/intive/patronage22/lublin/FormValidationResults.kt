@@ -1,4 +1,4 @@
-package com.intive.patronage22.lublin.screens.register
+package com.intive.patronage22.lublin
 
 data class FormValidationResults(
     val correctUsername: String? = null,

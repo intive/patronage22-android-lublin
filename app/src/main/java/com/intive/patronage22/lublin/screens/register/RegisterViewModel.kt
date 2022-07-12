@@ -31,22 +31,22 @@ class RegisterViewModel @Inject constructor(
     fun onUsernameChanged(username: String) {
         _usernameValidationResult.value = registerFlowValidator.validateUsername(username)
         usernameCorrect = _usernameValidationResult.value == null
-        registerFormCorrect()
+        enableRegisterButton()
     }
 
     fun onPasswordChanged(password: String) {
         _passwordValidationResult.value = registerFlowValidator.validatePassword(password)
         passwordCorrect = _passwordValidationResult.value == null
-        registerFormCorrect()
+        enableRegisterButton()
     }
 
     fun onEmailChanged(email: String) {
         _emailValidationResult.value = registerFlowValidator.validateEmail(email)
         emailCorrect = emailValidationResult.value == null
-        registerFormCorrect()
+        enableRegisterButton()
     }
 
-    private fun registerFormCorrect() {
+    private fun enableRegisterButton() {
         _registerButtonEnabled.value = emailCorrect && usernameCorrect && passwordCorrect
     }
 }

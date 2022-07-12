@@ -1,6 +1,7 @@
 package com.intive.patronage22.lublin.screens.register
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.intive.patronage22.lublin.FormValidationResults
 import com.intive.patronage22.lublin.RegisterFlowValidator
 import junitparams.JUnitParamsRunner
 import junitparams.Parameters
@@ -19,7 +20,7 @@ class RegisterViewModelTest {
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    private val f: FormValidationResults = FormValidationResults()
+    private val formValidationResults: FormValidationResults = FormValidationResults()
     private val validationResult = "validation result"
     private val username = "username"
     private val password = "password"
@@ -55,14 +56,9 @@ class RegisterViewModelTest {
     }
 
     @Test
-    fun `given states when registerFormCorrect then verify result`() {
-        tested.registerButtonEnabled.value
-    }
-
-    @Test
-    @Parameters(method = "inputCorrectState")
+    @Parameters(method = "testParams")
     @TestCaseName("given usernameValidationResult = {0}, emailValidationResult = {1}, passwordValidationResult = {2} when form validated then registerButtonEnabled = {3}")
-    fun `given state when registerFormCorrect then verify result`(
+    fun `given validation results when registration form fields changes then registration button has proper state`(
         usernameValidationResult: String?,
         emailValidationResult: String?,
         passwordValidationResult: String?,
@@ -79,12 +75,14 @@ class RegisterViewModelTest {
         tested.registerButtonEnabled.value `should be` result.toBoolean()
     }
 
-    @Suppress("")
-    private fun inputCorrectState() = listOf(
-        arrayOf(f.correctUsername, f.correctEmail, f.correctPassword, f.buttonEnabled),
-        arrayOf(f.incorrectUsername, f.correctEmail, f.correctPassword, f.buttonDisabled),
-        arrayOf(f.correctUsername, f.incorrectEmail, f.correctPassword, f.buttonDisabled),
-        arrayOf(f.correctUsername, f.correctEmail, f.incorrectPassword, f.buttonDisabled),
-        arrayOf(f.incorrectUsername, f.incorrectEmail, f.incorrectPassword, f.buttonDisabled)
-    )
+    private fun testParams() =
+        with(formValidationResults) {
+            listOf(
+                arrayOf(correctUsername, correctEmail, correctPassword, buttonEnabled),
+                arrayOf(incorrectUsername, correctEmail, correctPassword, buttonDisabled),
+                arrayOf(correctUsername, incorrectEmail, correctPassword, buttonDisabled),
+                arrayOf(correctUsername, correctEmail, incorrectPassword, buttonDisabled),
+                arrayOf(incorrectUsername, incorrectEmail, incorrectPassword, buttonDisabled)
+            )
+        }
 }
