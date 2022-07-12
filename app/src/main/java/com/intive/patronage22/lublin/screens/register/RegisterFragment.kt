@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,35 +30,42 @@ class RegisterFragment : Fragment() {
         binding.registerViewModel = viewModel
         binding.lifecycleOwner = this
 
-        registerUsernameOnFocusChange(binding.editTextUsername)
-        registerPasswordOnFocusChange(binding.editTextPassword)
-        registerEmailOnFocusChange(binding.editTextEmail)
+        startListenUsername(binding.editTextUsername)
+        startListenPassword(binding.editTextPassword)
+        startListenEmail(binding.editTextEmail)
+
+        binding.registerButton.setOnClickListener {
+            this.findNavController().navigate(R.id.loginFragment)
+        }
 
         return binding.root
     }
 
-    private fun registerUsernameOnFocusChange(editText: EditText) {
+    private fun startListenUsername(editText: EditText) {
         editText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 viewModel.onUsernameChanged(editText.text.toString())
             }
         }
+        editText.doAfterTextChanged { viewModel.onUsernameChanged(editText.text.toString()) }
     }
 
-    private fun registerPasswordOnFocusChange(editText: EditText) {
+    private fun startListenPassword(editText: EditText) {
         editText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 viewModel.onPasswordChanged(editText.text.toString())
             }
         }
+        editText.doAfterTextChanged { viewModel.onPasswordChanged(editText.text.toString()) }
     }
 
-    private fun registerEmailOnFocusChange(editText: EditText) {
+    private fun startListenEmail(editText: EditText) {
         editText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 viewModel.onEmailChanged(editText.text.toString())
             }
         }
+        editText.doAfterTextChanged { viewModel.onEmailChanged(editText.text.toString()) }
     }
 
     override fun onDestroy() {

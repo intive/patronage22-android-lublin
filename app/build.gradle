@@ -75,6 +75,7 @@ dependencies {
     // For local unit tests
     testImplementation 'com.google.dagger:hilt-android-testing:2.42'
     kaptTest 'com.google.dagger:hilt-compiler:2.42'
+    testImplementation 'pl.pragmatists:JUnitParams:1.1.1'
 
     // for JVM:
     testImplementation 'org.amshove.kluent:kluent:1.68'
