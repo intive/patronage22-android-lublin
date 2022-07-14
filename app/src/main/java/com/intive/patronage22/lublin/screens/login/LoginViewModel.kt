@@ -1,4 +1,4 @@
-package com.intive.patronage22.lublin.screens.register
+package com.intive.patronage22.lublin.screens.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(
+class LoginViewModel @Inject constructor(
     private val registerFlowValidator: RegisterFlowValidator
 ) : ViewModel() {
 
@@ -18,37 +18,26 @@ class RegisterViewModel @Inject constructor(
     private val passwordCorrect: Boolean
         get() = _passwordValidationResult.value == null
 
-    private val emailCorrect: Boolean
-        get() = _emailValidationResult.value == null
-
-    private var _registerButtonEnabled = MutableLiveData<Boolean>(false)
-    val registerButtonEnabled: LiveData<Boolean> = _registerButtonEnabled
-
     private val _usernameValidationResult = MutableLiveData<String>()
     val usernameValidationResult: LiveData<String> = _usernameValidationResult
 
     private val _passwordValidationResult = MutableLiveData<String>()
     val passwordValidationResult: LiveData<String> = _passwordValidationResult
 
-    private val _emailValidationResult = MutableLiveData<String>()
-    val emailValidationResult: LiveData<String> = _emailValidationResult
+    private val _loginButtonEnabled = MutableLiveData<Boolean>()
+    val loginButtonEnabled: LiveData<Boolean> = _loginButtonEnabled
 
     fun onUsernameChanged(username: String) {
         _usernameValidationResult.value = registerFlowValidator.validateUsername(username)
-        enableRegisterButton()
+        enableLoginButton()
     }
 
     fun onPasswordChanged(password: String) {
         _passwordValidationResult.value = registerFlowValidator.validatePassword(password)
-        enableRegisterButton()
+        enableLoginButton()
     }
 
-    fun onEmailChanged(email: String) {
-        _emailValidationResult.value = registerFlowValidator.validateEmail(email)
-        enableRegisterButton()
-    }
-
-    private fun enableRegisterButton() {
-        _registerButtonEnabled.value = emailCorrect && usernameCorrect && passwordCorrect
+    private fun enableLoginButton() {
+        _loginButtonEnabled.value = usernameCorrect && passwordCorrect
     }
 }
