@@ -10,7 +10,7 @@ class RegisterFlowValidator @Inject constructor(@ApplicationContext var appConte
         Regex("[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9]+@[a-z]+\\.[a-z]+")
     private val passwordRegex =
         Regex(
-            "^(?=.+[0-9])(?=.+[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ])(?=.+[@$!%*#?&])" +
+            "^(?=.+[0-9])(?=.+[A-Z])(?=.+[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ])(?=.+[@$!%*#?&])" +
                     "[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0123456789@$!%*#?&]{6,}\$"
         )
     private val usernameRegex =

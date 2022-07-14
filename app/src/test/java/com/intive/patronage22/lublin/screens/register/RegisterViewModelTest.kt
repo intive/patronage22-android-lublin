@@ -32,8 +32,9 @@ class RegisterViewModelTest {
         on { validatePassword(password) } doReturn validationResult
         on { validateEmail(email) } doReturn validationResult
     }
+    private val signup: SignUpUseCase = mock()
 
-    private val tested by lazy { RegisterViewModel(validator) }
+    private val tested by lazy { RegisterViewModel(validator, signup) }
 
     @Test
     fun `given username when onUsernameChanged called then return validation result`() {

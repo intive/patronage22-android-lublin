@@ -3,13 +3,16 @@ package com.intive.patronage22.lublin.screens.register
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.intive.patronage22.lublin.RegisterFlowValidator
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val registerFlowValidator: RegisterFlowValidator
+    private val registerFlowValidator: RegisterFlowValidator,
+    private val signUpUseCase: SignUpUseCase
 ) : ViewModel() {
 
     private val usernameCorrect: Boolean
@@ -50,5 +53,19 @@ class RegisterViewModel @Inject constructor(
 
     private fun enableRegisterButton() {
         _registerButtonEnabled.value = emailCorrect && usernameCorrect && passwordCorrect
+    }
+
+    fun onRegisterButtonClicked(name: String, email: String, password: String) {
+        registerUser(name, email, password)
+    }
+
+    private fun registerUser(
+        name: String,
+        email: String,
+        password: String
+    ) {
+        viewModelScope.launch {
+            signUpUseCase.execute(name, email, password)
+        }
     }
 }

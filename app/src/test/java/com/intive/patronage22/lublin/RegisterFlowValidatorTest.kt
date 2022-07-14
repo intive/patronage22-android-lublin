@@ -281,6 +281,26 @@ class RegisterFlowValidatorTest {
     }
 
     @Test
+    fun `given password with no uppercase characters when validatePassword then return proper message`() {
+        val noUpperPassword = "password123@!@#"
+        whenever(context.getString(R.string.not_valid_password_error)).doReturn("Enter a valid password")
+
+        val result = registerClass.validatePassword(noUpperPassword)
+
+        result `should be` "Enter a valid password"
+    }
+
+    @Test
+    fun `given password with no uppercase when validatePassword then request text from resources by proper resource id`() {
+        val noUpperPassword = "password123@!@#$"
+        whenever(context.getString(R.string.not_valid_password_error)).doReturn("Enter a valid password")
+
+        registerClass.validatePassword(noUpperPassword)
+
+        verify(context).getString(R.string.not_valid_password_error)
+    }
+
+    @Test
     fun `given correct password when validatePassword then return null`() {
         val correctPassword = "IamaGoodPAsswordś123@123$"
         whenever(context.getString(R.string.not_valid_password_error)).doReturn("Enter a valid password")
