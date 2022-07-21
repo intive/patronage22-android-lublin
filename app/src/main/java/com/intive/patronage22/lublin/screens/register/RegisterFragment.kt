@@ -8,8 +8,6 @@ import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.intive.patronage22.lublin.R
 import com.intive.patronage22.lublin.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,7 +33,11 @@ class RegisterFragment : Fragment() {
         startListenEmail(binding.editTextEmail)
 
         binding.registerButton.setOnClickListener {
-            this.findNavController().navigate(R.id.loginFragment)
+            viewModel.onRegisterButtonClicked(
+                binding.editTextUsername.text.toString(),
+                binding.editTextEmail.text.toString(),
+                binding.editTextPassword.text.toString()
+            )
         }
 
         return binding.root
