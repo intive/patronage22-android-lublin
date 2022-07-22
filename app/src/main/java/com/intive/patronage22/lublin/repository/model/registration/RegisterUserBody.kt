@@ -1,4 +1,4 @@
-package com.intive.patronage22.lublin.repository.model
+package com.intive.patronage22.lublin.repository.model.registration
 
 import com.google.gson.annotations.SerializedName
 
