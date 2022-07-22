@@ -2,8 +2,8 @@ package com.intive.patronage22.lublin.data.api
 
 import com.intive.patronage22.lublin.repository.model.CategoriesApi
 import com.intive.patronage22.lublin.repository.model.ProductApi
-import com.intive.patronage22.lublin.repository.model.RegisterResponseBody
-import com.intive.patronage22.lublin.repository.model.RegisterUserBody
+import com.intive.patronage22.lublin.repository.model.registration.RegisterResponseBody
+import com.intive.patronage22.lublin.repository.model.registration.RegisterUserBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
