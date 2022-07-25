@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.intive.patronage22.lublin.R
+import androidx.lifecycle.Observer
 import com.intive.patronage22.lublin.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,16 +34,21 @@ class RegisterFragment : Fragment() {
         startListenPassword(binding.editTextPassword)
         startListenEmail(binding.editTextEmail)
 
+        viewModel.registerErrorMassage.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(
+                context,
+                viewModel.registerErrorMassage.value.toString(),
+                Toast.LENGTH_SHORT
+            ).show()
+        })
+
         binding.registerButton.setOnClickListener {
             viewModel.onRegisterButtonClicked(
                 binding.editTextUsername.text.toString(),
                 binding.editTextEmail.text.toString(),
                 binding.editTextPassword.text.toString()
-            ) //wyslij toast a pozniej zmien fragment jesli succes
-            // mapper daje znac co zrobic z odpowiedzia
-            Toast.makeText(context, context?.getString(R.string.not_valid_password_error), Toast.LENGTH_SHORT)
+            )
         }
-
         return binding.root
     }
 
