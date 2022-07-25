@@ -21,15 +21,18 @@
     <string name="hello_hello">Hello Hello</string>
     <string name="product_image_description">Product image</string>
     <string name="product_price">Price: %d</string>
-    <!-- Login / registration strings -->
+    <!-- Login / registration UI strings -->
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_button_text">Login</string>
     <string name="register_button_text">Register</string>
     <string name="email_hint">E-mail</string>
-    <!-- Registration error messages -->
+    <!-- Registration validation error messages -->
     <string name="not_valid_username_error">"Enter a valid name"</string>
     <string name="not_valid_email_error">"Enter a valid email address"</string>
     <string name="not_valid_password_error">"Enter a valid password"</string>
+    <!-- RegisterUser response strings -->
+    <string name="registrationSuccess">Registration Success!</string>
+    <string name="registrationFailed"> Registration Failed!</string>
 
 </resources>

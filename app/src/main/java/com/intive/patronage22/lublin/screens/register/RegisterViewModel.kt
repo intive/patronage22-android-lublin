@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.intive.patronage22.lublin.RegisterFlowValidator
+import com.intive.patronage22.lublin.repository.mapper.SignUpException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val registerFlowValidator: RegisterFlowValidator,
-    private val signUpUseCase: SignUpUseCase
+    private val signUpUseCase: SignUpUseCase,
 ) : ViewModel() {
 
     private val usernameCorrect: Boolean
@@ -23,6 +24,9 @@ class RegisterViewModel @Inject constructor(
 
     private val emailCorrect: Boolean
         get() = _emailValidationResult.value == null
+
+    private var _registerErrorMassage = MutableLiveData<String?>()
+    val registerErrorMassage: LiveData<String?> = _registerErrorMassage
 
     private var _registerButtonEnabled = MutableLiveData<Boolean>(false)
     val registerButtonEnabled: LiveData<Boolean> = _registerButtonEnabled
@@ -65,7 +69,11 @@ class RegisterViewModel @Inject constructor(
         password: String
     ) {
         viewModelScope.launch {
-            signUpUseCase.execute(name, email, password)
+            try {
+                signUpUseCase.execute(name, email, password)
+            } catch (e: SignUpException) {
+                _registerErrorMassage.value = e.message
+            }
         }
     }
 }

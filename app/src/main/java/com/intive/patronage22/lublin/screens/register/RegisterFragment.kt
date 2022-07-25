@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.intive.patronage22.lublin.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,6 +34,14 @@ class RegisterFragment : Fragment() {
         startListenPassword(binding.editTextPassword)
         startListenEmail(binding.editTextEmail)
 
+        viewModel.registerErrorMassage.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(
+                context,
+                viewModel.registerErrorMassage.value.toString(),
+                Toast.LENGTH_SHORT
+            ).show()
+        })
+
         binding.registerButton.setOnClickListener {
             viewModel.onRegisterButtonClicked(
                 binding.editTextUsername.text.toString(),
@@ -39,7 +49,6 @@ class RegisterFragment : Fragment() {
                 binding.editTextPassword.text.toString()
             )
         }
-
         return binding.root
     }
 
